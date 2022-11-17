@@ -1,0 +1,32 @@
+---
+- hosts: all
+  become: true
+  tasks:
+  - name: Install Apache packages 
+    apt:
+      name: apache2
+      state: present
+  - name: Create website root
+    file:
+      path: /var/www/html/webapp
+      state: directory
+      owner: www-data
+      mode: '0755'
+  - name: Copy website
+    copy:
+      dest: /var/www/html/webapp
+      src: /home/ubuntu/project/ansible/files/webapp/
+      owner: www-data
+  - name: Add website configuration
+    copy:
+      dest: /etc/apache2/sites-available/
+      src: /home/ubuntu/project/ansible/files/webapp.conf
+      owner: root
+  - name: Disable default website
+    command: a2dissite 000-default.conf
+  - name: Enable Webapp website
+    command: a2ensite webapp.conf
+  - name: Ensure Apache is running
+    service:
+      name: apache2
+      state: started
