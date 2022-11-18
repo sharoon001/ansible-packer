@@ -27,11 +27,6 @@
     ],
     "provisioners": [
         {
-            "type": "shell",
-            "script": "/home/ubuntu/ansible-packer/ansible/playbook/install_ansible.sh"
-       
-        },
-        {
             "type": "ansible",
             "playbook_file": "/home/ubuntu/ansible-packer/ansible/playbook/website.yml"
         }
