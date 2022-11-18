@@ -28,12 +28,12 @@
     "provisioners": [
         {
             "type": "shell",
-            "script": "/home/ubuntu/project/ansible/playbook/install_ansible.sh"
+            "script": "/home/ubuntu/ansible-packer/ansible/playbook/install_ansible.sh"
        
         },
         {
             "type": "ansible",
-            "playbook_file": "/home/ubuntu/project/ansible/playbook/website.yml"
+            "playbook_file": "/home/ubuntu/ansible-packer/ansible/playbook/website.yml"
         }
     ]
 }
