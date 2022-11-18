@@ -15,12 +15,12 @@
   - name: Copy website
     copy:
       dest: /var/www/html/webapp
-      src: /home/ubuntu/project/ansible/files/webapp/
+      src: /home/ubuntu/ansible-packer/ansible/files/webapp/
       owner: www-data
   - name: Add website configuration
     copy:
       dest: /etc/apache2/sites-available/
-      src: /home/ubuntu/project/ansible/files/webapp.conf
+      src: /home/ubuntu/ansible-packer/ansible/files/webapp.conf
       owner: root
   - name: Disable default website
     command: a2dissite 000-default.conf
